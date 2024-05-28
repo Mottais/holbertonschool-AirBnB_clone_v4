@@ -23,3 +23,7 @@ header #api_status {
     margin-right: 30px;
     margin-left: auto;
 }
+
+#api_status.available {
+    background-color: #FF545F
+;}
