@@ -38,6 +38,8 @@ $(document).ready(function() {
 
   // evenement sur clique des checkbox de la classe 'amenities'
   $('.amenities input[type="checkbox"]').change(function() {
+    $('button').show();
+
     // si la checkbox est coché, ajouter à la liste (clé=id, valeur=name)
     if (this.checked) {
       listeAmenitiesSelectionnees[$(this).data('id')] = $(this).data('name');
@@ -67,9 +69,11 @@ $(document).ready(function() {
 
   // Effectuer la requête initiale pour récupérer les places sans critères
   fetchPlaces({});
+  $('button').hide();
 
   // Lorsque le bouton est cliqué, effectuer la requête avec les critères sélectionnés
   $('button').click(function() {
+    $('button').hide();
     fetchPlaces({amenities: Object.keys(listeAmenitiesSelectionnees)});
   });
 });
